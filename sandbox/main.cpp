@@ -11,9 +11,11 @@ int main(int argc, char *argv[])
         cppsdl::config::WINDOWPOS_CENTERED,
         cppsdl::config::WINDOWPOS_CENTERED);
 
-    cppsdl::Renderer renderer(window);
+    cppsdl::Renderer::DisplayRenderDriverInfo();
 
-    context.Delay(1000);
+    cppsdl::Renderer renderer(window, -1);
+
+    context.Delay(10000);
 
     return 0;
 }

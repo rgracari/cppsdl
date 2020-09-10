@@ -22,7 +22,8 @@ namespace cppsdl
 
     public:
         Renderer() = delete;
-        Renderer(Window &window, uint32_t flags = RENDERER_FLAGS::ACCELERATED);
+        Renderer(Window &window, int index = -1, uint32_t flags = RENDERER_FLAGS::ACCELERATED);
+        static void DisplayRenderDriverInfo();
         ~Renderer();
     };
 } // namespace cppsdl
