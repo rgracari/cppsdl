@@ -1,5 +1,7 @@
 #include <cppsdl.h>
+
 #include <iostream>
+#include <string>
 
 int main(int argc, char *argv[])
 {
@@ -11,11 +13,14 @@ int main(int argc, char *argv[])
         cppsdl::config::WINDOWPOS_CENTERED,
         cppsdl::config::WINDOWPOS_CENTERED);
 
-    cppsdl::Renderer::DisplayRenderDriverInfo();
+    cppsdl::Renderer renderer(window);
+    cppsdl::Surface surface("sandbox/Hercule.bmp");
+    cppsdl::Texture texture(renderer, surface);
 
-    cppsdl::Renderer renderer(window, -1);
+    renderer.RenderClear();
+    renderer.RenderCopy(texture);
+    renderer.RenderPresent();
 
-    context.Delay(10000);
-
+    context.Delay(1000);
     return 0;
 }

@@ -7,6 +7,8 @@
 
 namespace cppsdl
 {
+
+    class Texture;
     namespace RENDERER_FLAGS
     {
         constexpr uint32_t SOFTWARE = SDL_RENDERER_SOFTWARE;
@@ -23,7 +25,13 @@ namespace cppsdl
     public:
         Renderer() = delete;
         Renderer(Window &window, int index = -1, uint32_t flags = RENDERER_FLAGS::ACCELERATED);
+
         static void DisplayRenderDriverInfo();
+        void RenderClear();
+        void RenderCopy(Texture &texture);
+        void RenderPresent();
+        SDL_Renderer *GetSDLRenderer();
+
         ~Renderer();
     };
 } // namespace cppsdl
