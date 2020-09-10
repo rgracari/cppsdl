@@ -7,7 +7,8 @@ namespace cppsdl
         int width,
         int height,
         int windowPositionX,
-        int windowPositionY)
+        int windowPositionY,
+        uint32_t flags)
     {
         std::cout << "Create Window" << std::endl;
         window = SDL_CreateWindow(
@@ -16,7 +17,7 @@ namespace cppsdl
             windowPositionY,
             width,
             height,
-            SDL_WINDOW_SHOWN);
+            flags);
     }
 
     Window::~Window()
