@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[])
 {
-    cppsdl::Render();
-    std::cout << "Salut" << std::endl;
+    cppsdl::Init();
+    cppsdl::Quit();
     return 0;
 }

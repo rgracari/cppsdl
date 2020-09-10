@@ -15,9 +15,9 @@ BIN_INT_PATH = bin-int
 SRC_PATH = src
 SDX_PATH = sandbox
 
-SBX_INCFLAGS = -I $(SRC_PATH)/ 
-SBX_LDFLAGS = -L $(BIN_PATH)/
-SBX_LDLIBS = -lcppsdl
+SBX_INCFLAGS = -I $(SRC_PATH)/ $(INCFLAGS)
+SBX_LDFLAGS = -L $(BIN_PATH)/ $(LDFLAGS)
+SBX_LDLIBS = -lcppsdl $(LDLIBS)
 
 RM = del
 
@@ -28,13 +28,11 @@ OBJ := $(SRC:$(SRC_PATH)/%.cpp=$(BIN_INT_PATH)/%.o)
 
 
 lib: $(OBJ)
-	@ar rcs $(LIB) $^
+	ar rcs $(LIB) $^
 
 $(BIN_INT_PATH)/%.o: $(SRC_PATH)/%.cpp
-	@$(CXX) -o $@ -c $<
+	$(CXX) -o $@ -c $< $(CFLAGS) $(INCFLAGS) $(LDFLAGS) $(LDLIBS)
 	
-# $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
-
 # ============= PRG =============
 
 sandbox: $(BIN_PATH)/$(EXEC)

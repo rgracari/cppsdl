@@ -3,7 +3,8 @@
 
 namespace cppsdl
 {
-    void Render();
-}
+    void Init();
+    void Quit();
+} // namespace cppsdl
 
 #endif // CPPSDL_H
