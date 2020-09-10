@@ -1,8 +1,9 @@
 #include <cppsdl.h>
 #include <iostream>
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
-    Cactus();
+    cppsdl::Render();
+    std::cout << "Salut" << std::endl;
     return 0;
 }

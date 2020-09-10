@@ -2,25 +2,14 @@
 
 #include <iostream>
 
-void Cactus()
+namespace cppsdl
 {
-    std::cout << "TATO" << std::endl;
-    std::cout << "TATO" << std::endl;
-    std::cout << "TATO" << std::endl;
-    std::cout << "TATO" << std::endl;
-    std::cout << "TATO" << std::endl;
-    std::cout << "TATO" << std::endl;
-    std::cout << "TATO" << std::endl;
-    std::cout << "TATO" << std::endl;
-}
-
-void Souris()
-{
-    std::cout << "SPAWNING a mouse" << std::endl;
-    std::cout << "SPAWNING a mouse" << std::endl;
-}
-
-void Print()
-{
-    std::cout << "CALLED FROM LIB PRINT" << std::endl;
-}
+    void Render()
+    {
+        std::cout << "RENDER" << std::endl;
+        std::cout << "RENDER" << std::endl;
+        std::cout << "RENDER" << std::endl;
+        std::cout << "RENDER" << std::endl;
+        std::cout << "RENDER" << std::endl;
+    }
+} // namespace cppsdl

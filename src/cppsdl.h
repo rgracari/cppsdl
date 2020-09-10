@@ -1,8 +1,9 @@
 #ifndef CPPSDL_H
 #define CPPSDL_H
 
-void Print();
-void Souris();
-void Cactus();
+namespace cppsdl
+{
+    void Render();
+}
 
 #endif // CPPSDL_H

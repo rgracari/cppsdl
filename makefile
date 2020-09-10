@@ -9,6 +9,7 @@ LDFLAGS = -L C:\vclib\SDL2-mingw\x86_64-w64-mingw32\lib
 LDLIBS = -lmingw32 -lSDL2main -lSDL2
 
 EXEC = prog.exe
+LIB = $(BIN_PATH)/libcppsdl.a
 BIN_PATH = bin
 BIN_INT_PATH = bin-int
 SRC_PATH = src
@@ -20,20 +21,19 @@ SBX_LDLIBS = -lcppsdl
 
 RM = del
 
-# SRC := $(wildcard $(SRC_PATH)/*.c)
-# OBJ := $(SRC:$(SRC_PATH)/%.c=$(BIN_INT_PATH)/%.o)
+SRC := $(wildcard $(SRC_PATH)/*.cpp)
+OBJ := $(SRC:$(SRC_PATH)/%.cpp=$(BIN_INT_PATH)/%.o)
 
 # ============= LIB =============
 
-lib: $(BIN_PATH)/libcppsdl.a
 
-$(BIN_PATH)/libcppsdl.a: $(BIN_INT_PATH)/cppsdl.o
-	@ar rcs $(BIN_PATH)/libcppsdl.a $(BIN_INT_PATH)/cppsdl.o
+lib: $(OBJ)
+	@ar rcs $(LIB) $^
 
-$(BIN_INT_PATH)/cppsdl.o: $(SRC_PATH)/cppsdl.cpp $(SRC_PATH)/cppsdl.h
-	@g++ -c $(SRC_PATH)/cppsdl.cpp -o $(BIN_INT_PATH)/cppsdl.o
-
-# $(CFLAGS) $(INCFLAGS) $(LDFLAGS) $(LDLIBS) 
+$(BIN_INT_PATH)/%.o: $(SRC_PATH)/%.cpp
+	@$(CXX) -o $@ -c $<
+	
+# $(CFLAGS) $(CPPFLAGS) $(LDFLAGS)
 
 # ============= PRG =============
 
@@ -48,7 +48,7 @@ $(BIN_INT_PATH)/main.o: $(SDX_PATH)/main.cpp lib
 
 # ============= ASS =============
 
-.PHONY: clean mrproper dir all sandbox
+.PHONY: clean mrproper dir all sandbox lib compile
 
 clean:
 	@$(RM) $(BIN_INT_PATH)\*.o
@@ -60,9 +60,3 @@ mrproper: clean
 dir:
 	@mkdir $(BIN_PATH)
 	@mkdir $(BIN_INT_PATH)
-
-# $(EXEC): $(OBJ)
-# 	$(CC) -o $(BIN_PATH)/$(EXEC) $^ $(CPPFLAGS) $(LDFLAGS) $(LDLIBS)
-
-# $(BIN_INT_PATH)/%.o: $(SRC_PATH)/%.c
-# 	$(CC) -o $@ $(CFLAGS) $< $(CPPFLAGS) $(LDFLAGS)
