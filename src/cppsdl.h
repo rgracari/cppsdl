@@ -6,6 +6,7 @@
 #include "window.h"
 #include "renderer.h"
 #include "texture.h"
+#include "rect.h"
 #include "surface.h"
 
 #endif // CPPSDL_H

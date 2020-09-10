@@ -20,6 +20,11 @@ namespace cppsdl
         return surface;
     }
 
+    Rect Surface::GetRect()
+    {
+        return Rect(surface->clip_rect);
+    }
+
     Surface::~Surface()
     {
         if (surface != nullptr)

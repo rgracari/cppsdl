@@ -41,6 +41,16 @@ namespace cppsdl
         SDL_RenderCopy(renderer, texture.GetSDLTexture(), NULL, NULL);
     }
 
+    void Renderer::RenderCopy(Texture &texture, Rect &innerRect)
+    {
+        SDL_RenderCopy(renderer, texture.GetSDLTexture(), &innerRect.GetSDLRect(), NULL);
+    }
+
+    void Renderer::RenderCopy(Texture &texture, Rect &innerRect, Rect &rect)
+    {
+        SDL_RenderCopy(renderer, texture.GetSDLTexture(), &innerRect.GetSDLRect(), &rect.GetSDLRect());
+    }
+
     void Renderer::RenderPresent()
     {
         SDL_RenderPresent(renderer);

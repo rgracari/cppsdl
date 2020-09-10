@@ -5,6 +5,8 @@
 
 #include <string>
 
+#include "rect.h"
+
 namespace cppsdl
 {
     class Surface
@@ -17,6 +19,7 @@ namespace cppsdl
 
         Surface(const char *path);
 
+        Rect GetRect();
         SDL_Surface *GetSDLSurface();
 
         ~Surface();

@@ -4,6 +4,7 @@
 #include <SDL.h>
 
 #include "window.h"
+#include "rect.h"
 
 namespace cppsdl
 {
@@ -29,6 +30,8 @@ namespace cppsdl
         static void DisplayRenderDriverInfo();
         void RenderClear();
         void RenderCopy(Texture &texture);
+        void RenderCopy(Texture &texture, Rect &innerRect);
+        void RenderCopy(Texture &texture, Rect &innerRect, Rect &rect);
         void RenderPresent();
         SDL_Renderer *GetSDLRenderer();
 

@@ -17,8 +17,11 @@ int main(int argc, char *argv[])
     cppsdl::Surface surface("sandbox/Hercule.bmp");
     cppsdl::Texture texture(renderer, surface);
 
+    cppsdl::Rect rect(200, 200, 400, 400);
+    cppsdl::Rect rectsurface = surface.GetRect();
+
     renderer.RenderClear();
-    renderer.RenderCopy(texture);
+    renderer.RenderCopy(texture, rectsurface, rect);
     renderer.RenderPresent();
 
     context.Delay(1000);
