@@ -38,8 +38,10 @@ namespace cppsdl
                int windowPositionY = config::WINDOWPOS_CENTERED,
                uint32_t flags = WINDOW_FLAGS::SHOWN);
 
+        SDL_Window *GetSDLWindow();
+
         ~Window();
-    };
+    }; // namespace WINDOW_FLAGS
 } // namespace cppsdl
 
 #endif // WINDOW_H

@@ -20,6 +20,11 @@ namespace cppsdl
             flags);
     }
 
+    SDL_Window *Window::GetSDLWindow()
+    {
+        return window;
+    }
+
     Window::~Window()
     {
         std::cout << "Destroy Window" << std::endl;

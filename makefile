@@ -36,13 +36,14 @@ $(BIN_INT_PATH)/%.o: $(SRC_PATH)/%.cpp
 # ============= PRG =============
 
 sandbox: $(BIN_PATH)/$(EXEC)
+	@echo "========== PROGRAM =========="
 	@./$(BIN_PATH)/$(EXEC)
 
 $(BIN_PATH)/$(EXEC): $(BIN_INT_PATH)/main.o
-	@$(CXX) $(BIN_INT_PATH)/main.o -o $@ $(CFLAGS) $(SBX_INCFLAGS) $(SBX_LDFLAGS) $(SBX_LDLIBS) 
+	$(CXX) $(BIN_INT_PATH)/main.o -o $@ $(CFLAGS) $(SBX_INCFLAGS) $(SBX_LDFLAGS) $(SBX_LDLIBS) 
 
 $(BIN_INT_PATH)/main.o: $(SDX_PATH)/main.cpp lib
-	@$(CXX) -c $(SDX_PATH)/main.cpp -o $(BIN_INT_PATH)/main.o $(CFLAGS) $(SBX_INCFLAGS) $(SBX_LDFLAGS) $(SBX_LDLIBS)
+	$(CXX) -c $(SDX_PATH)/main.cpp -o $(BIN_INT_PATH)/main.o $(CFLAGS) $(SBX_INCFLAGS) $(SBX_LDFLAGS) $(SBX_LDLIBS)
 
 # ============= ASS =============
 

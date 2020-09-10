@@ -1,3 +1,6 @@
+#ifndef CONTEXT_H
+#define CONTEXT_H
+
 #include <SDL.h>
 #include <iostream>
 
@@ -19,15 +22,11 @@ namespace cppsdl
     class Context
     {
     public:
-        Context(uint32_t flags = CONTEXT_FLAGS_INIT::VIDEO)
-        {
-            std::cout << "SDL_INIT" << std::endl;
-            SDL_Init(flags);
-        }
-        ~Context()
-        {
-            std::cout << "SDL_QUIT" << std::endl;
-            SDL_Quit();
-        }
+        Context(uint32_t flags = CONTEXT_FLAGS_INIT::VIDEO);
+        // temp method
+        void Delay(int ms);
+        ~Context();
     };
 } // namespace cppsdl
+
+#endif
