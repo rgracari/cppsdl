@@ -28,10 +28,10 @@ OBJ := $(SRC:$(SRC_PATH)/%.cpp=$(BIN_INT_PATH)/%.o)
 
 
 lib: $(OBJ)
-	ar rcs $(LIB) $^
+	@ar rcs $(LIB) $^
 
 $(BIN_INT_PATH)/%.o: $(SRC_PATH)/%.cpp
-	$(CXX) -o $@ -c $< $(CFLAGS) $(INCFLAGS) $(LDFLAGS) $(LDLIBS)
+	@$(CXX) -o $@ -c $< $(CFLAGS) $(INCFLAGS) $(LDFLAGS) $(LDLIBS)
 	
 # ============= PRG =============
 

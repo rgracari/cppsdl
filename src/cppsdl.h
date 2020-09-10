@@ -1,10 +1,8 @@
 #ifndef CPPSDL_H
 #define CPPSDL_H
 
-namespace cppsdl
-{
-    void Init();
-    void Quit();
-} // namespace cppsdl
+#include "config.h"
+#include "context.h"
+#include "window.h"
 
 #endif // CPPSDL_H
